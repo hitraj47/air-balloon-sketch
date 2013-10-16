@@ -10,6 +10,7 @@ public class Turret
   {
     location = new PVector(x, y);
     this.diameter = diameter;
+    this.baseAngle = baseAngle;
     this.minAngle = minAngle;
     this.maxAngle = maxAngle;
     angle = minAngle;
@@ -22,11 +23,19 @@ public class Turret
     pushMatrix();
     translate(location.x, location.y);
     rotate(updateAngle());
+    rectMode(CORNER);
     rect(0, -5, 50, 10);
     popMatrix();
 
     ellipseMode(CENTER);
     ellipse(location.x, location.y, diameter, diameter);
+    
+    pushMatrix();
+    translate(location.x, location.y);
+    rotate(baseAngle);
+    rectMode(CENTER);
+    rect(0-diameter/2, 0, diameter, diameter);
+    popMatrix();
   }
 
   private float updateAngle()
