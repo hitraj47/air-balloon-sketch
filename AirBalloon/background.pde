@@ -21,7 +21,7 @@ class Background {
    
   Background()
   {
-    colorMode(RGB, 1);
+    ////colorMode(RGB, 1);
     g_time = 0.0;
     gradientTop = color(255, 0);
     gradientBottom = color(0, 0, 10, .4);
@@ -31,7 +31,7 @@ class Background {
   {
     // g_time = float(millis()) / 1000.0;
     g_time += 0.04;
-   
+    colorMode(RGB, 1);
     loadPixels();
     for (int y = 0; y < height; y++)
     {
@@ -42,9 +42,11 @@ class Background {
       }
     }
     updatePixels();
-    fill(255, 255, 255, .5);
+    
+    //fill(255, 255, 255, .5);
+    fill(1, 1, 1, .5);
     noStroke();
-    rect(0, 0, width, height);
+    //rect(0, 0, width, height);
     setGradient(0, 0, width, height, gradientTop, gradientBottom, Y_AXIS);
   
   }

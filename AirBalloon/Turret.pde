@@ -18,7 +18,10 @@ public class Turret
 
   public void display()
   {
-    fill(100);
+    //fill(100);
+    colorMode(RGB, 255);
+    fill(100, 100, 100, 200);
+    noStroke();
     
     pushMatrix();
     translate(location.x, location.y);
