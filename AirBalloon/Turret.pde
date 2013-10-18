@@ -5,6 +5,7 @@ public class Turret
   float baseAngle, minAngle, maxAngle, angle;
   float speed = .01;
   boolean collision;
+  int launchInterval = 1; //in seconds
 
   public Turret(int x, int y, int diameter, float baseAngle, float minAngle, float maxAngle)
   {
@@ -23,6 +24,7 @@ public class Turret
     fill(100, 100, 100, 200);
     noStroke();
     
+    // barrel
     pushMatrix();
     translate(location.x, location.y);
     rotate(updateAngle());
@@ -33,6 +35,7 @@ public class Turret
     ellipseMode(CENTER);
     ellipse(location.x, location.y, diameter, diameter);
     
+    // base
     pushMatrix();
     translate(location.x, location.y);
     rotate(baseAngle);
@@ -48,12 +51,23 @@ public class Turret
     else if ( angle >= maxAngle )
       collision = true;
       
-    if ( collision == true )
+    //if ( collision == true )
+    if (collision) // cleaner than previous line
       angle-=speed;
     else if ( collision == false )
       angle+=speed;
       
+    updateLauncher();
     return angle;
+  }
+  
+  private void updateLauncher() {
+    if (frameCount % (launchInterval*6) == 0)
+    {
+     PVector loc = getEndOfBarrelLoc();
+     float a = angle;
+     projectiles.add(new Projectile(loc, a));
+    } 
   }
   
   public float getAngle()
@@ -64,6 +78,10 @@ public class Turret
   public PVector getLocation()
   {
     return location;
+  }
+  
+  public PVector getEndOfBarrelLoc() {
+    return new PVector(location.x+50*cos(angle), location.y+50*sin(angle));
   }
 }
 
