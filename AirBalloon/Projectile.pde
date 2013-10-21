@@ -3,6 +3,7 @@ class Projectile
   PVector location;
   PVector velocity;
   float angle;
+  float dia = 5;
 
   Projectile(PVector _location, float _angle)
   {
@@ -18,7 +19,7 @@ class Projectile
     stroke(0); 
     strokeWeight(2);
     fill(127);
-    ellipse(location.x, location.y, 20, 20);
+    ellipse(location.x, location.y, dia, dia);
   }
   
    void update()

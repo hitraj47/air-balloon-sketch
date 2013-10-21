@@ -4,12 +4,14 @@
 Balloon balloon;
 Background background;
 Turret t1, t2, t3, t4;
+Projectiles projectiles;
 
 void setup() {
   //size(800,600);
   size(600,600);
   background = new Background();
   balloon = new Balloon();
+  projectiles = new Projectiles();
   
     // x, y, diameter, baseAngle, minAngle, maxAngle
   // For baseAngle:
@@ -39,6 +41,7 @@ void draw() {
   t2.display();
   t3.display();
   t4.display();
+  projectiles.display();
   
 }
 
