@@ -21,8 +21,8 @@ class Balloon {
     if (keyPressed && key == CODED) {
       if (keyCode == UP) {
         acceleration = PVector.fromAngle(angle);
-        acceleration.div(random(2));
-        velocity.sub(acceleration);
+        acceleration.mult(random(2));
+        velocity.add(acceleration);
         velocity.limit(topspeed);
         location.sub(velocity);
       } 
@@ -41,7 +41,5 @@ class Balloon {
     image(balloon, location.x, location.y);
   }
 
-  void keyPressed() {
-  }
 }
 
