@@ -6,6 +6,7 @@ public class Turret
   float speed = .01;
   boolean collision;
   int launchInterval = 1; //in seconds
+  boolean isOscillating = true;
 
   public Turret(int x, int y, int diameter, float baseAngle, float minAngle, float maxAngle)
   {
@@ -46,16 +47,19 @@ public class Turret
 
   private float updateAngle()
   {
-    if ( angle <= minAngle )
-      collision = false;
-    else if ( angle >= maxAngle )
-      collision = true;
+    if (isOscillating) {
       
-    //if ( collision == true )
-    if (collision) // cleaner than previous line
-      angle-=speed;
-    else if ( collision == false )
-      angle+=speed;
+      if ( angle <= minAngle )
+        collision = false;
+      else if ( angle >= maxAngle )
+        collision = true;
+        
+      //if ( collision == true )
+      if (collision) // cleaner than previous line
+        angle-=speed;
+      else if ( collision == false )
+        angle+=speed;
+    }
       
     updateLauncher();
     return angle;
