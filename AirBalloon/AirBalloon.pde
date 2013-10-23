@@ -37,10 +37,11 @@ void draw() {
   balloon.update();
   balloon.display();
   
+  // these two turrents have a min max angle
   t1.display();
   t2.display();
-  t3.display();
-  t4.display();
+  //t3.display();
+  //t4.display();
   projectiles.display();
   
 }
