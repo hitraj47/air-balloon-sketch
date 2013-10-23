@@ -17,6 +17,14 @@ public class Turret
     this.maxAngle = maxAngle;
     angle = minAngle;
   }
+  
+  public Turret(int x, int y, diameter, float baseAngle, angle)
+  {
+    location = new PVector(x, y);
+    this.diameter = diameter;
+    this.baseAngle = baseAngle;
+    this.angle = angle;
+  }
 
   public void display()
   {
