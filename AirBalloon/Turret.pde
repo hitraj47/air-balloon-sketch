@@ -18,12 +18,13 @@ public class Turret
     angle = minAngle;
   }
   
-  public Turret(int x, int y, diameter, float baseAngle, angle)
+  public Turret(int x, int y, int diameter, float baseAngle, float angle)
   {
     location = new PVector(x, y);
     this.diameter = diameter;
     this.baseAngle = baseAngle;
     this.angle = angle;
+    this.isOscillating = false;
   }
 
   public void display()

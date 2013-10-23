@@ -26,7 +26,7 @@ void setup() {
   int tsize = 50;
   t1 = new Turret(width/2, height-tsize, tsize, -HALF_PI, radians(225), radians(315));
   t2 = new Turret(width/2, tsize, tsize, HALF_PI, radians(45), radians(135));
-  t3 = new Turret(tsize, height-tsize/2, tsize, 0, radians(300), radians(300));
+  t3 = new Turret(tsize, height-tsize/2, tsize, 0, radians(300));
   t4 = new Turret(width-tsize, height-tsize/2, tsize, PI, radians(210), radians(240));
   
 }
