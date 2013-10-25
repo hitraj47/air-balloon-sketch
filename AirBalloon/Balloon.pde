@@ -8,11 +8,11 @@ class Balloon {
   PVector acceleration;
   float topspeed;
   public final float angle = 1.57;
-  int health = 10;
+  int health = 20;
 
   Balloon() {
     balloon = loadImage("hot-air-balloon.png");
-    location = new PVector(width/2, balloon.height/2);
+    location = new PVector(width/2-balloon.width/2, 0);
     velocity = new PVector(0, 0);
     topspeed = 6;
   }
@@ -43,13 +43,13 @@ class Balloon {
   
   void crash() {
     acceleration = PVector.fromAngle(angle);
-    acceleration.mult(20);
+    acceleration.mult(10);
     velocity.add(acceleration);
     location.add(velocity);
   }
 
   void display() {
-    imageMode(CENTER);
+    //imageMode(CENTER);
     image(balloon, location.x, location.y);
     fill(0);
   }
