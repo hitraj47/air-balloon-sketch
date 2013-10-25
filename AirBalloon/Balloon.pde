@@ -35,6 +35,13 @@ class Balloon {
       }
     } 
   }
+  
+  void crash() {
+    acceleration = PVector.fromAngle(angle);
+    acceleration.mult(20);
+    velocity.add(acceleration);
+    location.add(velocity);
+  }
 
   void display() {
     imageMode(CENTER);
