@@ -38,6 +38,12 @@ void setup() {
 void draw() {
   //background(255);
   background.display();
+  
+  // check if balloon hit
+  if (didBalloonGetHit()) {
+    balloon.health = balloon.health - 1;
+  }
+  
   balloon.update();
   balloon.display();
   
@@ -48,6 +54,21 @@ void draw() {
   //t4.display();
   projectiles.display();
   
+  println("hp: " + balloon.health);
+  
+}
+
+boolean didBalloonGetHit() {
+  boolean hit = false;
+  for(Projectile p : projectiles.arrayOfProjectiles) {
+    if (p.location.x >= balloon.location.x
+     && p.location.x <= (balloon.location.x+balloon.balloon.width)
+     && p.location.y >= balloon.location.y
+     && p.location.y <= (balloon.location.y+balloon.balloon.height) ) {
+      hit = true;
+    }
+  }
+  return hit;
 }
 
 
