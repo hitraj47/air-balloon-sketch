@@ -31,17 +31,16 @@ class Projectiles {
 
   for (int i = 0; i < arrayOfProjectiles.size(); i++)
   {
-    arrayOfProjectiles.get(i).update();
+      arrayOfProjectiles.get(i).update();
+  
+      if (arrayOfProjectiles.get(i).location.x > width || arrayOfProjectiles.get(i).location.y > height)
+        arrayOfProjectiles.remove(i);
+  
+      else
+        arrayOfProjectiles.get(i).display();
+  
+      }
 
-    if (arrayOfProjectiles.get(i).location.x > width || arrayOfProjectiles.get(i).location.y > height)
-      arrayOfProjectiles.remove(i);
-
-    else
-      arrayOfProjectiles.get(i).display();
-
-  }
-
-  println(arrayOfProjectiles.size());
   }
 
 }

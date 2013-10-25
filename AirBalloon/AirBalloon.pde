@@ -29,6 +29,8 @@ void setup() {
   t3 = new Turret(tsize, height-tsize/2, tsize, 0, radians(300));
   t4 = new Turret(width-tsize, height-tsize/2, tsize, PI, radians(210), radians(240));
   
+  t3.launchInterval = 5;
+  
 }
 
 void draw() {
