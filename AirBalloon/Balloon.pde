@@ -11,8 +11,7 @@ class Balloon {
 
   Balloon() {
     balloon = loadImage("hot-air-balloon.png");
-    //location = new PVector(width/2, height/2);
-    location = new PVector(width/2, height/4);
+    location = new PVector(width/2, balloon.height);
     velocity = new PVector(0, 0);
     topspeed = 6;
   }
@@ -46,6 +45,7 @@ class Balloon {
   void display() {
     imageMode(CENTER);
     image(balloon, location.x, location.y);
+    fill(0);
   }
 
 }
